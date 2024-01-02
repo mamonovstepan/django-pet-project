@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+from django.contrib.messages import constants as messages
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,6 +80,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert alert-secondary d-flex align-items-center',
+        messages.INFO: 'alert alert-primary d-flex align-items-center',
+        messages.SUCCESS: 'alert alert-success d-flex align-items-center',
+        messages.WARNING: 'alert alert-warning d-flex align-items-center',
+        messages.ERROR: 'alert alert-danger d-flex align-items-center',
+ }
 
 LANGUAGE_CODE = 'ru'
 
