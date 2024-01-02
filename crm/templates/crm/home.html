@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ text }}</h1>
+    <div class="col-md-6 offset-md-3">
+        {% if user.is_authenticated %}
+        
+        <h1 align="center">Добро пожаловать, {{ user.first_name }}</h1>
+
+        {% else %}
+
+        <br/>
+        <h1 align="center">Войти в систему</h1>
+        <br/>
+        <form action="{% url "home" %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control"
+                name="login" placeholder="Введите логин" Required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control"
+                name="password" placeholder="Введите пароль" Required>
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        {% endif %}
+    </div>
 {% endblock content %}
