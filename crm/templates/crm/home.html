@@ -4,7 +4,20 @@
     <div class="col-md-6 offset-md-3">
         {% if user.is_authenticated %}
         
-        <h1 align="center">Добро пожаловать, {{ user.first_name }}</h1>
+        <h1>Клиенты</h1>
+        {% if leads %}
+            {% for lead in leads %}
+                <h3><strong>Имя: </strong></h3> {{ lead.first_name }}
+                <h3><strong>Фамилия: </strong></h3> {{ lead.last_name }}
+                <h3><strong>Номер телефона: </strong></h3> {{ lead.phone }}
+                <h3><strong>Адрес эл. почты: </strong></h3> {{ lead.email }}
+                <h3><strong>Область: </strong></h3> {{ lead.region }}
+                <h3><strong>Город: </strong></h3> {{ lead.city }}
+                <h3><strong>Адрес: </strong></h3> {{ lead.address }}
+                <h3><strong>Почтовый индекс: </strong></h3> {{ lead.zipcode }}
+                <hr>
+            {% endfor %}
+        {% endif %}
 
         {% else %}
 

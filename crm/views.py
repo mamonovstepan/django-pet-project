@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import RegisterForm
+from .models import Lead
 
 
 def home(request):
+    leads = Lead.objects.all()
+
     template_name = 'crm/home.html'
     if request.method == 'POST':
         username = request.POST['login']
@@ -22,7 +25,7 @@ def home(request):
             messages.error(request, message)
             return redirect('home')
     else:
-        return render(request, template_name)
+        return render(request, template_name, {'leads': leads})
 
 
 def logout_user(request):
