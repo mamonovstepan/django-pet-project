@@ -16,6 +16,7 @@
             <th scope="col">Город</th>
             <th scope="col">Адрес</th>
             <th scope="col">Почтовый индекс</th>
+            <th scope="col">ID</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
                         <td>{{ lead.city }}</td>
                         <td>{{ lead.address }}</td>
                         <td>{{ lead.zipcode }}</td>
+                        <td><a href="{% url "detail_lead" lead.id %}">{{ lead.id }}</a></td>
                     </tr>
                 {% endfor %}
             {% endif %}
