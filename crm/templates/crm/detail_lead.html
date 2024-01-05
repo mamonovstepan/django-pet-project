@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            {{ lead }}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Имя: {{ lead.first_name }}</li>
+            <li class="list-group-item">Фамилия: {{ lead.last_name }}</li>
+            <li class="list-group-item">Номер телефона: {{ lead.phone }}</li>
+            <li class="list-group-item">Адрес эл. почты: {{ lead.email }}</li>
+            <li class="list-group-item">Область: {{ lead.region }}</li>
+            <li class="list-group-item">Город: {{ lead.city }}</li>
+            <li class="list-group-item">Адрес: {{ lead.address }}</li>
+            <li class="list-group-item">Почтовый индекс: {{ lead.zipcode }}</li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}
