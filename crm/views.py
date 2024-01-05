@@ -66,3 +66,16 @@ def detail_lead(request, id):
         message = 'Доступ ограничен'
         messages.error(request, message)
         return redirect('home')
+
+
+def delete_lead(request, id):
+    if request.user.is_authenticated:
+        lead = get_object_or_404(Lead, pk=id)
+        lead.delete()
+        message = 'Запись удалена'
+        messages.success(request, message)
+        return redirect('home')
+    else:
+        message = 'Доступ ограничен'
+        messages.error(request, message)
+        return redirect('home')

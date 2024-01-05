@@ -17,5 +17,8 @@
             <li class="list-group-item">Почтовый индекс: {{ lead.zipcode }}</li>
         </ul>
     </div>
+    <br/>
+    <a href="{% url "home" %}"><button type="button" class="btn btn-secondary">Назад</button></a>
+    <a href="{% url "delete_lead" lead.id %}"><button type="button" class="btn btn-danger">Удалить запись</button></a>
 </div>
 {% endblock content %}
