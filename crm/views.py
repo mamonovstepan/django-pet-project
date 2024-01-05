@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import RegisterForm
@@ -55,3 +55,14 @@ def register_user(request):
     else:
         form = RegisterForm()
     return render(request, template_name, {'form': form})
+
+
+def detail_lead(request, id):
+    template_name = 'crm/detail_lead.html'
+    if request.user.is_authenticated:
+        lead = get_object_or_404(Lead, pk=id)
+        return render(request, template_name, {'lead': lead})
+    else:
+        message = 'Доступ ограничен'
+        messages.error(request, message)
+        return redirect('home')
