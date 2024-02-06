@@ -37,10 +37,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000/']
+CORS_ALLOWED_ORIGINS = ( 'http://localhost:3000', )
 
 REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES':
-                  ['rest_framework.permission.AllowAny']}
+                  ['rest_framework.permissions.AllowAny']}
 
 ROOT_URLCONF = 'core.urls'
 
