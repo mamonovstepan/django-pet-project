@@ -42,7 +42,9 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = ( 'http://localhost:3000', )
 
 REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES':
-                  ['rest_framework.permissions.AllowAny']}
+                  ['rest_framework.permissions.AllowAny'],
+                  'DEFAULT_AUTHTENTICATION_CLASSES':
+                  ['rest_framework_simplejwt.authentication.JWTauthentication']}
 
 ROOT_URLCONF = 'core.urls'
 
