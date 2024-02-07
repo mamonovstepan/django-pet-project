@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 import React from 'react';
 
 class App extends React.Component {
@@ -23,7 +23,6 @@ class App extends React.Component {
             {this.state.details.map((output, id) => (
                 <div>
                     <h1>{output.first_name} {output.last_name}</h1>
-                    <h1></h1>
                 </div>
             ))}
             </div>
